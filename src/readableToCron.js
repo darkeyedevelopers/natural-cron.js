@@ -19,7 +19,7 @@ const getYear  = require('./states/year').getYear;
 /*callState function to match and call curresponding state function*/
 function callState(token,stack,error) {
     let stateName = decideState(token);
-    console.log("in "+stateName);
+    console.log("in "+stateName+" state");
     switch(stateName) {
         case "frequencyWith" : {
             return getFrequencyWith(token,stack,error);
@@ -87,7 +87,7 @@ function getCronString(inputString, syntaxString) {
     let stack = [];
     let error = "";
     let tokens = tokenizeInput(inputString);
-    console.log(tokens);
+    console.log("Tokens detected = [" + tokens+ "]");
     if(tokens == null) {
         error+="Please enter human readable rules !\n";
     }
@@ -108,3 +108,4 @@ console.log("When do you want to run ? ==>  ");
 var sentence = process.argv.slice(2)[0];
 console.log(sentence);
 console.log(getCronString(sentence));
+
