@@ -1,5 +1,7 @@
 'use strict';
 const regexString = require('./maps').regexString;
+var defaultFlags = require('./maps').defaultFlags;
+var defaultResultCron = require('./maps').defaultResultCron;
 var flags = require('./maps').flags;
 var resultCron = require('./maps').resultCron;
 
@@ -19,7 +21,7 @@ const getYear  = require('./states/year').getYear;
 /*callState function to match and call curresponding state function*/
 function callState(token,stack,error) {
     let stateName = decideState(token);
-    console.log("in "+stateName+" state");
+
     switch(stateName) {
         case "frequencyWith" : {
             return getFrequencyWith(token,stack,error);
@@ -80,14 +82,29 @@ function decideState(token) {
 }
 
 /*getCronString fucntion to convert human readable input string to cron string*/
-function getCronString(inputString, syntaxString) {
+module.exports = function getCronString(inputString, syntaxString) {
     //Set default syntax string
     syntaxString = typeof(syntaxString) !== 'undefined' ? syntaxString : "MIN HOR DOM MON WEK YER";
+
+    //resetting map values to default
+    flags.isRangeForDay = defaultFlags.isRangeForDay;
+    flags.isRangeForMonth = defaultFlags.isRangeForMonth;
+    flags.isRangeForYear = defaultFlags.isRangeForYear;
+    flags.isRangeForHour = defaultFlags.isRangeForHour;
+    flags.isRangeForMin = defaultFlags.isRangeForMin;
+
+    resultCron.min = defaultResultCron.min;
+    resultCron.hour = defaultResultCron.hour;
+    resultCron.day_of_month = defaultResultCron.day_of_month;
+    resultCron.month = defaultResultCron.month;
+    resultCron.day_of_week = defaultResultCron.day_of_week;
+    resultCron.year = defaultResultCron.year;
+
     //Stack to store temperory states' data
     let stack = [];
     let error = "";
     let tokens = tokenizeInput(inputString);
-    console.log("Tokens detected = [" + tokens+ "]");
+
     if(tokens == null) {
         error+="Please enter human readable rules !\n";
     }
@@ -102,10 +119,3 @@ function getCronString(inputString, syntaxString) {
         return syntaxString.replace("MIN",resultCron.min).replace("HOR",resultCron.hour).replace("DOM",resultCron.day_of_month).replace("MON",resultCron.month).replace("WEK",resultCron.day_of_week).replace("YER",resultCron.year);
     }
 }
-
-/*for debugging purpose*/
-console.log("When do you want to run ? ==>  ");
-var sentence = process.argv.slice(2)[0];
-console.log(sentence);
-console.log(getCronString(sentence));
-

@@ -69,7 +69,8 @@ var regexString = {
         "regexexec" : "(hour|hrs|hours)|(minutes|minute|mins|min)|((months|month)|(((january|february|march|april|may|june|july|august|september|october|november|december|JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEPT|OCT|NOV|DEC)( ?and)?,? ?)+))|[0-9]+(th|nd|rd|st)|(([0-9]+:)?[0-9]+( +)?(AM|PM))|([0-9]+:[0-9]+)|(noon|midnight)|((days|day)|(((monday|tuesday|wednesday|thursday|friday|saturday|sunday|WEEKEND|MON|TUE|WED|THU|FRI|SAT|SUN)( ?and)?,? ?)+))|(([0-9]{4}[0-9]*(( ?and)?,? ?))+)|([0-9]+)|(to|through|ending|end|and)|(between|starting|start)"
     }
 }
-var flags = {
+
+var defaultFlags = {
     "isRangeForDay" : false,
     "isRangeForMonth" : false,
     "isRangeForYear" : false,
@@ -77,7 +78,7 @@ var flags = {
     "isRangeForMin" : false
 };
 
-var resultCron = {
+var defaultResultCron = {
     "min" : "*",
     "hour" : "*",
     "day_of_month" : "*",
@@ -86,8 +87,28 @@ var resultCron = {
     "year" : "*"
 };
 
+var flags = {
+    "isRangeForDay" : defaultFlags.isRangeForDay,
+    "isRangeForMonth" : defaultFlags.isRangeForMonth,
+    "isRangeForYear" : defaultFlags.isRangeForYear,
+    "isRangeForHour" : defaultFlags.isRangeForHour,
+    "isRangeForMin" : defaultFlags.isRangeForMin
+};
+
+var resultCron = {
+    "min" : defaultResultCron.min,
+    "hour" : defaultResultCron.hour,
+    "day_of_month" : defaultResultCron.day_of_month,
+    "month" : defaultResultCron.month,
+    "day_of_week" : defaultResultCron.day_of_week,
+    "year" : defaultResultCron.year
+};
+
+
 module.exports = {
-    regexString ,
-    flags ,
+    regexString,
+    defaultFlags,
+    defaultResultCron,
+    flags,
     resultCron
 }
