@@ -1,6 +1,6 @@
 # natural-cron.js
 Pure JS library to natural english phrases to cron expressions.
-![demo.gif](https://raw.githubusercontent.com/darkeyedevelopers/natural-cron.js/blob/master/resources/demo.gif)
+![demo.gif](https://github.com/darkeyedevelopers/natural-cron.js/blob/master/resources/demo.gif)
 
 use as => open folder in terminal and enter following command and it is assumed that you have 'nodejs' in your path. 
     
@@ -8,4 +8,4 @@ use as => open folder in terminal and enter following command and it is assumed 
 
 
 ## Implemented using Push Down Automata
-![design.png](https://raw.githubusercontent.com/darkeyedevelopers/natural-cron.js/blob/master/resources/design.png)
+![design.png](https://github.com/darkeyedevelopers/natural-cron.js/blob/master/resources/design.png)
