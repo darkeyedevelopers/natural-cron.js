@@ -1,12 +1,32 @@
 # natural-cron.js
-Pure JS library to natural english phrases to cron expressions.
+Pure JS library for converting natural english phrases into cron expressions.
 
 
 ![demo.gif](https://github.com/darkeyedevelopers/natural-cron.js/blob/master/resources/demo.gif)
 
-use as => open folder in terminal and enter following command and it is assumed that you have 'nodejs' in your path. 
+
+## Usage
+
+#### Browser
+
+    <!-- link dist/natural-cron.min.js -->
+    <script src="pathToLibrary/natural-cron.min.js"></script>
     
-    nodejs --harmony_array_includes src/readableToCron.js "Run every 5 minutes Monday through Friday between 8:00 am and 5:55 pm (UTC)"
+    <!-- call getCronString() from JS code whenever required-->
+    <script>
+        btn.onclick = function(){
+            let str = inputBox.value;
+            res.value = getCronString(str);
+        };
+    </script>
+    
+#### with NodeJS
+* Download repository
+* Start terminal in downloaded folder and run...
+
+        nodejs --harmony_array_includes src/readableToCron.js "INPUT_NATURAL_PHRASE_HERE"
+    
+(Make sure you have nodejs installed)
 
 
 ## Implemented using Push Down Automata
