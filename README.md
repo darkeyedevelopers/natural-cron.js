@@ -1,5 +1,7 @@
 # natural-cron.js
 Pure JS library to natural english phrases to cron expressions.
+
+
 ![demo.gif](https://github.com/darkeyedevelopers/natural-cron.js/blob/master/resources/demo.gif)
 
 use as => open folder in terminal and enter following command and it is assumed that you have 'nodejs' in your path. 
