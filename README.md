@@ -32,7 +32,7 @@ Output result pattern can be specified while calling `getCronString()` function.
 | Parameter | Type | Default value | Description |
 | --- | --- | --- | --- |
 | Input string&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;String&nbsp;&nbsp;&nbsp; | | **Required**. English phrase that has to be<br/> converted to corresponding Cron expression |
-| Output pattern&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;String&nbsp;&nbsp;&nbsp; | `'MIN HOR DOM MON WEK YER'` | **Optional**. Specifies the output pattern in<br/> which cron expression should be generated.<br/><br/> `MIN` => Minutes<br/> `HOR` => Hours<br/> `DOM` => Day of Month<br/> `MON` => Month(s)<br/> `WEK` => Weekday(s)<br/> `YER` => Year |
+| Output pattern&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;String&nbsp;&nbsp;&nbsp; | `'MIN HOR DOM MON WEK YER'` | **Optional**. Specifies the output pattern in<br/> which cron expression should be generated.<br/><br/> `MIN` => Minutes<br/> `HOR` => Hours<br/> `DOM` => Day of Month<br/> `MON` => Month(s)<br/> `WEK` => Weekday(s)<br/> `YER` => Year<br/><br/>Combine one or more of the above to form result pattern. Checkout the examples below to understand better. |
 
 ### Examples
 * _getCronString('every 3rd day at 2:55 am from January to August');_
