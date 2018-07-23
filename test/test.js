@@ -21,4 +21,7 @@ midnight
 noon
 5:15am every Tuesdays
 every day at 17:25
+
+
+every 3rd day at 2:55 am from January to August in 2019 and 2020 =>  "55 2 3 JAN-AUG ? 2019,2020"
 */

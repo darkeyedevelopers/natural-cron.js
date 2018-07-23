@@ -16,6 +16,14 @@ var regexString = {
             "(noon|midnight)"
         ]
     },
+    year : {
+        "regextest" : "((years|year)|([0-9]{4}[0-9]*(( ?and)?,? ?))+)",
+        "regexexec" : [
+            "^(years|year)$",
+            "[0-9]*",
+            "^[0-9]{4}$"
+        ]
+    },
     frequencyWith : {
         "regextest" : "^[0-9]+(th|nd|rd|st)$"
     },
@@ -49,14 +57,6 @@ var regexString = {
         "regexexec" : [
             "^(month|months)$",
             "(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEPT|OCT|NOV|DEC)"
-        ]
-    },
-    year : {
-        "regextest" : "((years|year)|([0-9]{4}[0-9]*(( ?and)?,? ?))+)",
-        "regexexec" : [
-            "^(years|year)$",
-            "[0-9]*",
-            "^[0-9]{4}$"
         ]
     },
     rangeStart : {
