@@ -46,3 +46,7 @@ Output result pattern can be specified while calling `getCronString()` function.
 
 ## Implemented using Push Down Automata
 ![design.png](https://github.com/darkeyedevelopers/natural-cron.js/blob/master/resources/design.png)
+
+***
+
+Do you want to contribute ? Checkout [CONTRIBUTING.md](https://github.com/darkeyedevelopers/natural-cron.js/blob/master/CONTRIBUTING.md)
