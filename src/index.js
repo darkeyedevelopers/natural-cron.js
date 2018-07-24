@@ -21,7 +21,7 @@ const getYear  = require('./states/year').getYear;
 /*callState function to match and call curresponding state function*/
 function callState(token,stack,error) {
     let stateName = decideState(token);
-    //console.log(stateName);
+
     switch(stateName) {
         case "frequencyWith" : {
             return getFrequencyWith(token,stack,error);
@@ -82,7 +82,7 @@ function decideState(token) {
 }
 
 /*getCronString fucntion to convert human readable input string to cron string*/
-function getCronString(inputString, syntaxString) {
+module.exports = function getCronString(inputString, syntaxString) {
     //Set default syntax string
     syntaxString = typeof(syntaxString) !== 'undefined' ? syntaxString : "MIN HOR DOM MON WEK YER";
 
@@ -104,7 +104,7 @@ function getCronString(inputString, syntaxString) {
     let stack = [];
     let error = "";
     let tokens = tokenizeInput(inputString);
-    //console.log(tokens);
+
     if(tokens == null) {
         error+="Please enter human readable rules !\n";
     }
@@ -119,5 +119,3 @@ function getCronString(inputString, syntaxString) {
         return syntaxString.replace("MIN",resultCron.min).replace("HOR",resultCron.hour).replace("DOM",resultCron.day_of_month).replace("MON",resultCron.month).replace("WEK",resultCron.day_of_week).replace("YER",resultCron.year);
     }
 }
-module.exports.getCronString = getCronString;
-console.log(getCronString(process.argv[2]));
