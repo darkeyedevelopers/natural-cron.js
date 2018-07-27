@@ -28,13 +28,9 @@ If you have new English phrases that don't work with `natural-cron.js` yet, plea
        Head to [JSCompress](https://jscompress.com/) and generate minified JS code from `natural-cron.js` 
        file and put the minified code in `natural-cron.min.js` inside the same `/dist` folder.
 * #### Testing guidelines
-    1) Thoroughly test the updated code as explained below.
-    2) Either use `nodejs` command directly on `index.js` or create a simple webpage script and use the <br/>
-    `natural-cron.js` file for testing (checkout the usage section in README.md).
-    3) Test the code for all the example test phrases and their corresponding outputs given in 
-    `/test/examples.txt` to make sure that changes don't break existing code.
-    4) Test & verify that the updates implemented by you work as expected.
+    1) If you have worked on some new English phrases, append those example phrases and their outputs in `/test/examples.js`
+    2) Open `/test/autoTester.html` file in browser. It will automatically test all the examples in `/test/examples.js` file against specified desired outputs for both `/dist/natural-cron.js` & `/dist/natural-cron.min.js` files
+    3) Test & verify that there are no wrong results in the above test & the updates implemented by you work as expected.
 * #### and some final touches...
     1) Update `README.md` file accordingly (if required).
-    2) If you have worked on some new English phrases, append those example phrases and their outputs in `/test/examples.txt` file.
 * ##### that's it, submit the pull request, feel proud and get relaxed :)
