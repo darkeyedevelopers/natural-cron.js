@@ -1,0 +1,33 @@
+{
+  "name": "@darkeyedevelopers/natural-cron.js",
+  "version": "1.0.1",
+  "description": "Pure JavaScript library for converting natural English phrases into Cron expressions",
+  "main": "src/index.js",
+  "directories": {
+    "test": "test",
+    "dist": "dist",
+    "src": "src"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darkeyedevelopers/natural-cron.js.git"
+  },
+  "keywords": [
+    "JS",
+    "natural-cron",
+    "expression",
+    "cron",
+    "cron",
+    "expressions",
+    "english"
+  ],
+  "author": "DarkEye Developers <darkeyedev@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/darkeyedevelopers/natural-cron.js/issues"
+  },
+  "homepage": "https://github.com/darkeyedevelopers/natural-cron.js#readme"
+}
