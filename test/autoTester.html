@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Auto test natural-cron.js</title>
+
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <br/><br/>
+        <div id="test-message" class="col-md-12 text-center text-muted">refresh the page to rerun the test</div>
+        <div id="normalFile-message" class="col-md-12 text-center text-muted">natural-cron.js </div>
+        <div id="minFile-message" class="col-md-12 text-center text-muted">natural-cron.min.js </div>
+        <br/>
+        <table class="col-md-8 offset-md-2 table table-hover table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th class="text-center" width="5%"></th>
+                    <th width="40%">Input phrase</th>
+                    <th class="text-center" width="20%">Desired output</th>
+                    <th class="text-center" width="20%">Actual output</th>
+                    <th class="text-center" width="15%">Normal - Min</th>
+                </tr>
+            </thead>
+            <tbody id="resultTable"></tbody>
+        </table>
+
+        <br/><br/><br/>
+        <script src="examples.js"></script>
+        <script src="../dist/natural-cron.js"></script>
+
+        <script>
+            var normalFileFlg = true;
+            var minFileFlg = true;
+
+            function executeNormalTest()
+            {
+                var resultTable = document.getElementById('resultTable');
+
+                var data_i = 0;
+                var tableString = '';
+                for(data_i=0; data_i<exampleData.length; data_i++)
+                {
+                    let res = getCronString(exampleData[data_i].inputPhrase);
+
+                    tableString += '<tr><td class="text-center">';
+                    tableString += exampleData[data_i].srno;
+                    tableString += '</td><td>';
+                    tableString += exampleData[data_i].inputPhrase;
+                    tableString += '</td><td class="text-center">';
+                    tableString += exampleData[data_i].desiredOutput;
+                    tableString += '</td><td class="text-center">';
+                    tableString += res;
+                    tableString += '</td><td id="row'+exampleData[data_i].srno+'" class="text-center">';
+
+                    if(res == exampleData[data_i].desiredOutput)
+                        tableString += '<i style="color:green;" class="fas fa-check-circle"></i>';
+                    else
+                    {
+                        tableString += '<i style="color:red;" class="fas fa-times-circle"></i>';
+                        normalFileFlg = false;
+                    }
+
+                    tableString += '</td></tr>';
+
+                    resultTable.innerHTML = tableString;
+                }
+            }
+
+            executeNormalTest();
+        </script>
+
+        <script src="../dist/natural-cron.min.js"></script>
+
+        <script>
+            function executeMinTest()
+            {
+                var tableString = '';
+                for(data_i=0; data_i<exampleData.length; data_i++)
+                {
+                    let rowCol = document.getElementById('row'+exampleData[data_i].srno);
+                    let res = getCronString(exampleData[data_i].inputPhrase);
+
+                    if(res == exampleData[data_i].desiredOutput)
+                        rowCol.innerHTML += ' - <i style="color:green;" class="fas fa-check-circle"></i>';
+                    else
+                    {
+                        rowCol.innerHTML += ' - <i style="color:red;" class="fas fa-times-circle"></i>';
+                        minFileFlg = false;
+                    }
+                }
+            }
+
+            executeMinTest();
+
+            document.getElementById('test-message').innerHTML = 'Last tested @ '+new Date().toLocaleString()+' - refresh the page to rerun the test';
+            if(normalFileFlg)
+                document.getElementById('normalFile-message').innerHTML += '<i class="fas fa-check-circle"></i>';
+            else
+                document.getElementById('normalFile-message').innerHTML += '<i style="color:red;" class="fas fa-times-circle"></i>';
+            if(minFileFlg)
+                document.getElementById('minFile-message').innerHTML += '<i class="fas fa-check-circle"></i>';
+            else
+                document.getElementById('minFile-message').innerHTML += '<i style="color:red;" class="fas fa-times-circle"></i>';
+        </script>
+    </body>
+</html>
