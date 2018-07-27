@@ -25,7 +25,7 @@ Pure JS library for converting natural English phrases into Cron expressions.
 
         npm install @darkeyedevelopers/natural-cron.js
 
-* Get the lib with require() & call getCronString() whenever required...
+* Import with require() & call getCronString() whenever required...
 
         var getCronString = require('@darkeyedevelopers/natural-cron.js');
 
