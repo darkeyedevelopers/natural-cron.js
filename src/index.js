@@ -5,7 +5,6 @@ var defaultResultCron = require('./maps').defaultResultCron;
 var flags = require('./maps').flags;
 var resultCron = require('./maps').resultCron;
 
-var readline = require('readline');
 const tokenizeInput  = require('./tokens').tokenizeInput;
 const getClockTime  = require('./states/clocktime').getClockTime;
 const getDay  = require('./states/day').getDay;
