@@ -73,6 +73,11 @@
             executeNormalTest();
         </script>
 
+        <script>
+            //Wipe getCronString function to trigger errors when minified script is unavailable.
+            function getCronString(){};
+        </script>
+
         <script src="../dist/natural-cron.min.js"></script>
 
         <script>
