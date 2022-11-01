@@ -3,6 +3,7 @@
   "version": "1.1.0",
   "description": "Pure JavaScript library for converting natural English phrases into Cron expressions",
   "main": "src/index.js",
+  "types": "types",
   "directories": {
     "test": "test",
     "dist": "dist",
